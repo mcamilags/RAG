@@ -41,7 +41,7 @@ text_splitter: RecursiveCharacterTextSplitter = RecursiveCharacterTextSplitter(
 )
 
 embeddings: NomicEmbeddings = NomicEmbeddings(
-    model="nomic-embed-text-v1.5",
+    model="gte-multilingual-base",
     nomic_api_key=NOMIC_API_KEY
 )
 
