@@ -3,16 +3,17 @@
 ## Roadmap
 
 ### Purpose and Scope of the SAD
+
 El SAD tiene como objetivo documentar la arquitectura de Nebula, detallando los componentes estructurales y sus interacciones para cumplir con los requisitos de desarrollo, escalabilidad y seguridad. En este documento se incluye toda la informaci�n sobre la arquitectura de software de Nebula, destacando aquellos aspectos que influyen en el rendimiento y la adaptabilidad del sistema. Las decisiones de dise�o documentadas en el SAD son aquellas que tienen un impacto arquitect�nico relevante en la estructura general del sistema, mientras que los detalles de implementaci�n espec�ficos se documentan en otros informes t�cnicos.
 
 ### How the SAD Is Organized
 
-El SAD de Nebula est� estructurado en las siguientes secciones:
-Sección 1: Documentation Roadmap - Proporciona una visi�n general del SAD, el prop�sito del documento y una gu�a sobre c�mo est� organizado.
-Sección 2: Antecedentes de la Arquitectura - Explica los objetivos y el contexto de desarrollo de Nebula, los requerimientos que impulsan las decisiones arquitect�nicas y los enfoques de soluci�n adoptados, as� como un resumen de los cambios entre versiones.
-Sección 3: Vistas de Arquitectura - Presenta diversas vistas de la arquitectura del software (m�dulos, componentes y conectores, y asignaci�n) que detallan la organizaci�n, relaci�n y comportamiento de los elementos en el sistema.
-Sección 4: Relaciones entre Vistas - Describe c�mo se relacionan e integran las diferentes vistas arquitect�nicas del sistema, proporcionando una visi�n coherente de la arquitectura de Nebula.
-Sección 5: Materiales Referenciados - Cita los documentos de referencia y bibliograf�a utilizados en el SAD, proporcionando una base documental para futuras consultas.
+El SAD de Nebula est� estructurado en las siguientes secciones:  
+Sección 1: Documentation Roadmap - Proporciona una visi�n general del SAD, el prop�sito del documento y una gu�a sobre c�mo est� organizado.  
+Sección 2: Antecedentes de la Arquitectura - Explica los objetivos y el contexto de desarrollo de Nebula, los requerimientos que impulsan las decisiones arquitect�nicas y los enfoques de soluci�n adoptados, as� como un resumen de los cambios entre versiones.  
+Sección 3: Vistas de Arquitectura - Presenta diversas vistas de la arquitectura del software (m�dulos, componentes y conectores, y asignaci�n) que detallan la organizaci�n, relaci�n y comportamiento de los elementos en el sistema.  
+Sección 4: Relaciones entre Vistas - Describe c�mo se relacionan e integran las diferentes vistas arquitect�nicas del sistema, proporcionando una visi�n coherente de la arquitectura de Nebula.  
+Sección 5: Materiales Referenciados - Cita los documentos de referencia y bibliograf�a utilizados en el SAD, proporcionando una base documental para futuras consultas.  
 Sección 6: Directorio - Incluye un �ndice de t�rminos, glosario y lista de acr�nimos, facilitando la navegaci�n y comprensi�n de t�rminos clave empleados en el documento.
 
 ### Stakeholder Representation
@@ -87,13 +88,14 @@ El objetivo principal de Nebula es proporcionar un sistema SaaS accesible y efic
 Nebula surge en un contexto donde la demanda por herramientas accesibles de machine learning est� en crecimiento. En la actualidad, el uso de machine learning es com�n en sectores como el financiero, sanitario, retail, y de tecnolog�a, donde se requiere tanto la predicci�n de valores continuos (regresi�n) como la clasificaci�n en categor�as.
 La plataforma busca posicionarse como una herramienta que, adem�s de ser f�cil de usar, brinde un alto grado de flexibilidad y precisi�n. El proyecto utiliza tecnolog�as de desarrollo web modernas (React, FastAPI, PostgreSQL) y herramientas de aprendizaje autom�tico (Scikit-learn), lo cual permite que Nebula mantenga un rendimiento �ptimo y una experiencia de usuario fluida.
 
-##### Usuarios Objetivo:
+##### Usuarios Objetivo
 
 * Analistas de Datos: Profesionales que desean utilizar modelos predictivos sin involucrarse en la complejidad de la programaci�n y el ajuste de modelos.
 * Cient�ficos de Datos Principiantes: Usuarios que est�n aprendiendo machine learning y necesitan una plataforma que les permita experimentar con regresi�n y clasificaci�n de manera guiada.
 * Empresas Peque�as y Medianas: Organizaciones que buscan integrar modelos de machine learning sin necesidad de desarrollar una infraestructura avanzada.
 
 ##### Alcance del Sistema en el Contexto Organizacional
+
 Nebula est� dise�ado para servir tanto a usuarios individuales como a organizaciones. Permite la creaci�n de modelos en la nube, por lo que facilita la colaboraci�n y el acceso remoto a los modelos y resultados. En este contexto, la plataforma se posiciona como una soluci�n que combina el poder del machine learning con la accesibilidad de una aplicaci�n web intuitiva, de modo que organizaciones y usuarios puedan beneficiarse de sus capacidades predictivas con una inversi�n m�nima en infraestructura y experiencia t�cnica.
 
 ##### Significant Driving Requirements
@@ -109,6 +111,7 @@ Esta secci�n describe los requerimientos de comportamiento y atributos de cali
 * Gesti�n de Usuarios y Seguridad de Datos: El sistema debe incluir autenticaci�n y autorizaci�n de usuarios, garantizando que los datos y modelos sean accesibles solo para los usuarios autorizados, cumpliendo con las normas de privacidad.
 
 ##### Requerimientos de Calidad
+
 * Rendimiento y Escalabilidad: La arquitectura debe ser capaz de manejar m�ltiples solicitudes de entrenamiento de modelos de manera simult�nea sin afectar el rendimiento, siendo escalable para soportar un aumento en la base de usuarios.
 * Usabilidad: La interfaz de usuario debe ser intuitiva y f�cil de navegar, permitiendo que usuarios con diferentes niveles de experiencia en machine learning puedan utilizar la plataforma sin dificultad.
 * Confiabilidad y Disponibilidad: La plataforma debe estar disponible para los usuarios en todo momento y debe manejar de manera eficaz errores durante la carga de datos, preprocesamiento y entrenamiento de modelos.
@@ -120,6 +123,7 @@ Esta secci�n describe los requerimientos de comportamiento y atributos de cali
 #### Architectural Approaches
 
 Para garantizar que Nebula cumpla con sus objetivos de rendimiento, escalabilidad y usabilidad, se han adoptado los siguientes enfoques arquitect�nicos:
+
 * Arquitectura Basada en Servicios: La arquitectura del sistema se organiza en m�dulos funcionales separados, como el frontend, backend, base de datos y motor de machine learning. Estos m�dulos funcionan de manera independiente, comunic�ndose a trav�s de una API de alto rendimiento desarrollada en FastAPI, lo que permite una escalabilidad y mantenibilidad mejoradas.
 * Contenedorizaci�n: Utilizando Docker, todos los componentes del sistema est�n contenedorizados para facilitar el despliegue y la consistencia en diversos entornos. Esto tambi�n permite que el sistema se escale horizontalmente, permitiendo ejecutar instancias adicionales de servicios en funci�n de la demanda.
 * Componentizaci�n con Next.js y React en el Frontend: La interfaz de usuario se ha construido con Next.js y React, lo que permite una experiencia de usuario fluida y adaptable a diferentes dispositivos. La arquitectura basada en componentes hace que la interfaz sea modular, facilitando la implementaci�n de actualizaciones o nuevas funcionalidades.
@@ -129,6 +133,7 @@ Para garantizar que Nebula cumpla con sus objetivos de rendimiento, escalabilida
 #### Requirements Coverage
 
 La arquitectura de Nebula aborda los requisitos fundamentales del sistema en las siguientes �reas:
+
 * Rendimiento: La arquitectura modular y escalable permite manejar un n�mero creciente de usuarios y solicitudes, garantizando tiempos de respuesta eficientes.
 * Escalabilidad y Mantenibilidad: Gracias al uso de contenedores y una arquitectura orientada a servicios, el sistema puede actualizarse y ampliarse sin interrumpir la experiencia del usuario.
 * Seguridad: Los mecanismos de autenticaci�n, manejo de sesiones y la implementaci�n de HTTPS protegen los datos de los usuarios.
@@ -137,6 +142,7 @@ La arquitectura de Nebula aborda los requisitos fundamentales del sistema en las
 #### Summary of Background Changes Reflected in Current Version
 
 Desde la versi�n inicial, Nebula ha experimentado una serie de mejoras arquitect�nicas y funcionales, en gran parte centradas en la optimizaci�n de la experiencia de usuario en el frontend, la integraci�n efectiva con el backend y el aseguramiento de una arquitectura escalable y eficiente. Estos cambios incluyen:
+
 * Experiencia de Usuario Guiada e Intuitiva en el Frontend: Se ha mejorado la interfaz del usuario para guiarlo paso a paso en la carga de datos, selecci�n de variables y visualizaci�n de resultados. El flujo de trabajo permite que cualquier usuario, independientemente de sus conocimientos en ciencia de datos, pueda navegar de manera intuitiva. Gracias a Next.js y Material Design 3 en combinaci�n con componentes personalizados de Shadcn, la interfaz es atractiva y familiar, asegurando que los usuarios puedan concentrarse en los resultados sin sentirse abrumados por la complejidad del modelo.
 * Optimizaci�n de Rendimiento con Next.js y Zustand: La estructura optimizada de Next.js mejora la carga de p�ginas y componentes. Adicionalmente, Zustand ha sido implementado para la gesti�n de estados, permitiendo una manipulaci�n eficiente de datos sin una jerarqu�a compleja de componentes. Esto reduce el tiempo de respuesta en la interfaz y asegura que la experiencia de usuario sea r�pida y sin interrupciones.
 * Comunicaci�n As�ncrona con el Backend: Para optimizar la comunicaci�n entre el frontend y el backend (desarrollado en FastAPI), se integraron funciones as�ncronas (async/await) en el servidor de Next.js, lo cual facilita una interacci�n fluida con los datos y evita bloqueos en la interfaz. Esta implementaci�n asegura que la carga y procesamiento de datos se realice en tiempo real, con una visualizaci�n continua de los resultados.
@@ -156,11 +162,11 @@ La arquitectura de software de Nebula se documenta a trav�s de varias vistas, 
 
 ### Vista de M�dulos
 
-#### View Description
+#### View Description - 1
 
 La Vista de M�dulos representa la organizaci�n estructural del sistema en t�rminos de m�dulos o componentes principales. Cada m�dulo agrupa una funcionalidad espec�fica, lo que facilita la mantenibilidad y la escalabilidad del sistema al permitir que cada m�dulo pueda evolucionar independientemente.
 
-#### View Packet Overview
+#### View Packet Overview - 1
 
 Los paquetes en esta vista representan las agrupaciones principales de funcionalidad en Nebula:
 
@@ -169,50 +175,54 @@ Los paquetes en esta vista representan las agrupaciones principales de funcional
 * M�dulo de Machine Learning: Implementa los algoritmos de clasificaci�n y regresi�n utilizando Scikit-Learn y gestiona los procesos de entrenamiento y evaluaci�n de modelos.
 * M�dulo de Base de Datos: Almacena los datos del usuario, configuraciones y modelos en PostgreSQL, asegurando un acceso r�pido y seguro a la informaci�n persistente.
 
-#### Variability Mechanisms
+#### Variability Mechanisms - 1
 
 Cada m�dulo es contenedorizado con Docker, lo que permite despliegues independientes y escalabilidad en funci�n de la demanda. Adem�s, la arquitectura permite la adici�n de nuevos algoritmos de machine learning en el M�dulo de Machine Learning sin impactar el resto del sistema.
 
 ### Vista de Componentes y Conectores
 
-#### View Description
+#### View Description - 2
 
 La Vista de Componentes y Conectores muestra los elementos que interact�an en tiempo de ejecuci�n y los canales de comunicaci�n entre ellos. Esto incluye tanto componentes de frontend y backend como los conectores que permiten la comunicaci�n y flujo de datos entre ellos.
 
-#### View Packet Overview
+#### View Packet Overview - 2
 
 Los principales paquetes en esta vista son:
+
 * Componente de Interfaz de Usuario: Gestiona la interacci�n con el usuario, enviando solicitudes al backend y mostrando los resultados de los modelos.
 * Conector de API REST: Act�a como un puente entre el frontend y el backend, facilitando las solicitudes HTTP y asegurando que la comunicaci�n se realice de forma segura.
 * Componente de Entrenamiento de Modelos: Responsable de ejecutar los procesos de machine learning y gestionar los algoritmos de Scikit-Learn.
 * Conector de Base de Datos: Permite que el backend acceda y actualice la informaci�n almacenada en PostgreSQL de manera segura.
 
-#### Variability Mechanisms
+#### Variability Mechanisms - 2
 
 El diagrama de clases en esta vista ilustra c�mo est�n estructurados los principales componentes l�gicos del sistema y las relaciones entre ellos. Este diagrama muestra las clases clave, sus atributos, m�todos, y las asociaciones que existen entre ellas, proporcionando una visi�n clara de c�mo est�n organizados los datos y la l�gica del sistema. Adem�s, se detalla c�mo las diferentes clases colaboran para cumplir con las funcionalidades requeridas.
 
 ### Vista de Asignaci�n
 
-#### View Description
+#### View Description - 3
 
 La Vista de Asignaci�n muestra la relaci�n entre los elementos de software de Nebula y los recursos f�sicos o virtuales donde se implementan, destacando la distribuci�n de los m�dulos en contenedores Docker y su despliegue en un entorno escalable en la nube.
 
-#### View Packet Overview
+#### View Packet Overview - 3
 
 Los principales paquetes de esta vista incluyen:
+
 * Asignaci�n de Contenedores Docker: Cada m�dulo se implementa en un contenedor Docker independiente, lo cual permite escalar el sistema horizontalmente y realizar actualizaciones sin afectar a otros componentes.
 * Asignaci�n de Recursos en la Nube: Los contenedores Docker se implementan en un entorno de nube que permite una asignaci�n flexible de recursos seg�n la carga del sistema, optimizando el uso de CPU y memoria.
 
-#### Variability Mechanisms
+#### Variability Mechanisms - 3
+
 La arquitectura de asignaci�n permite escalar o reducir los recursos de manera din�mica seg�n la demanda, facilitando el balanceo de carga en entornos de alta concurrencia.
 
-## Relations Among Views 
+## Relations Among Views
 
 Las vistas presentadas en el SAD de Nebula proporcionan diferentes perspectivas del sistema, y aunque cada una de ellas presenta una parte distinta de la arquitectura, todas est�n interrelacionadas y deben ser entendidas de manera conjunta. En esta secci�n, se describen las relaciones entre las vistas seleccionadas y se abordan cualquier inconsistencia que pueda existir entre ellas, asegurando que las diferentes representaciones del sistema sean coherentes y complementarias.
 
 ### General Relations Among Views
 
 Las vistas documentadas en este SAD est�n relacionadas de la siguiente manera:
+
 * Vista de M�dulos y Vista de Componentes y Conectores: La vista de m�dulos describe la estructura est�tica del sistema, dividiendo la funcionalidad del sistema en unidades modulares. Estas unidades, definidas en la vista de m�dulos, se implementan como componentes en la vista de componentes y conectores.
 * Vista de Componentes y Conectores y Vista de Asignaci�n: La vista de componentes y conectores se complementa con la vista de asignaci�n, que muestra c�mo los componentes del sistema se distribuyen y se ejecutan en el hardware y otros recursos del entorno. Los componentes representados en la vista de componentes y conectores est�n asignados a unidades de procesamiento (como servidores o contenedores) en la vista de asignaci�n.
 * Vista de M�dulos y Vista de Asignaci�n: Aunque la vista de m�dulos se centra en la estructura l�gica del sistema, la vista de asignaci�n proporciona informaci�n sobre c�mo esa estructura se distribuye en la infraestructura f�sica. La relaci�n entre ambas vistas asegura que los m�dulos definidos en el sistema se asignen correctamente a los recursos de hardware, garantizando el rendimiento y la escalabilidad.
@@ -221,11 +231,12 @@ Las vistas documentadas en este SAD est�n relacionadas de la siguiente manera:
 ### View-to-View Relations
 
 Para proporcionar una visi�n coherente de la arquitectura, es crucial entender c�mo las diferentes vistas se relacionan entre s�. Las principales relaciones entre las vistas del sistema Nebula son las siguientes:
+
 * Relaci�n entre la Vista de M�dulos y la Vista de Componentes y Conectores: La vista de m�dulos se enfoca en la estructura l�gica y la divisi�n de las funcionalidades en unidades aut�nomas, mientras que la vista de componentes y conectores describe c�mo esas unidades de software interact�an en tiempo de ejecuci�n. Los m�dulos definidos en la vista de m�dulos se representan como componentes en la vista de componentes, y las relaciones entre ellos se modelan como conectores, que representan los puntos de interacci�n entre los componentes. Esta relaci�n permite entender c�mo la estructura l�gica se materializa en la arquitectura de ejecuci�n.
 * Relaci�n entre la Vista de Componentes y Conectores y la Vista de Asignaci�n: Los componentes definidos en la vista de componentes y conectores son asignados a los recursos del sistema en la vista de asignaci�n. Esto incluye la asignaci�n de componentes a servidores, contenedores y otros elementos de infraestructura. La relaci�n entre ambas vistas asegura que cada componente est� bien distribuido en el entorno de ejecuci�n, de modo que el sistema pueda escalar y ejecutarse eficientemente en diferentes plataformas.
 * Relaci�n entre la Vista de M�dulos y la Vista de Asignaci�n: Aunque ambas vistas abordan aspectos diferentes de la arquitectura (la vista de m�dulos se enfoca en la estructura l�gica y la vista de asignaci�n en la distribuci�n f�sica), es crucial que exista una correspondencia entre los m�dulos y los recursos de hardware en los que se ejecutan. Esto asegura que los m�dulos sean implementados correctamente y que el sistema sea capaz de cumplir con los requisitos de rendimiento y escalabilidad.
 * Relaci�n entre la Vista de Variabilidad y las Otras Vistas: Las vistas de variabilidad permiten adaptar la arquitectura a diferentes contextos y necesidades. Las variaciones pueden incluir la elecci�n de algoritmos de machine learning, el n�mero de servidores, o la configuraci�n de modelos de entrenamiento. Estas variaciones se reflejan tanto en la vista de m�dulos como en la de componentes y conectores, permitiendo que el sistema sea flexible y pueda ajustarse a diferentes entornos de ejecuci�n sin necesidad de redise�ar la arquitectura completa.
-	
+
 ## Directory
 
 ### Index
