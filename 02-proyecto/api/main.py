@@ -1,5 +1,15 @@
-# TODO: Desarrollo de la API
-from api.rag import generate
+from api.rag import generate, State
+
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
-print(generate("¿Cuáles son los objetivos principales del proyecto Nebula?"))
+@app.get("/")
+async def root() -> dict:
+    return {"detail": "holi jeje"}
+
+# Temporal. Despues implementar websockets
+@app.get("/ask")
+async def ask(question: str) -> State:
+    return generate(question)

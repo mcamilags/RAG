@@ -29,6 +29,13 @@ LANGCHAIN_API_KEY = getenv("LANGCHAIN_API_KEY")
 CHUNK_SIZE = int(getenv("CHUNK_SIZE"))
 CHUNK_OVERLAP = int(getenv("CHUNK_OVERLAP"))
 
+
+class State(TypedDict):
+    question: str
+    context: list[Document]
+    answer: str
+
+
 llm: ChatAnthropic = ChatAnthropic(
     api_key=CLAUDE_API_KEY,
     model=MODEL_NAME,
@@ -54,7 +61,8 @@ docs = loader.load()
 all_splits: list[Document] = text_splitter.split_documents(docs)
 store = vector_store.add_documents(all_splits)
 
-def generate(question: str):
+# Temporal, después implementar historial de mensajes
+def generate(question: str) -> State:
     retrieved_docs = vector_store.similarity_search(question)
     docs_content = "<context>\n\n"
     docs_content += "\n\n".join(f"<context{i+1}>{doc.page_content}</context{i+1}>" 
@@ -65,4 +73,10 @@ def generate(question: str):
     messages = prompt.invoke(message_prompt)
     response = llm.invoke(messages)
 
-    return response.content
+    output = {
+        "question": question,
+        "context": retrieved_docs,
+        "answer": response.content
+    }
+
+    return output
