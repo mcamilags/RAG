@@ -1,0 +1,6 @@
+**/__pycache__
+*.pyc
+*.ipynb
+
+!02-proyecto
+!requeriments.txt

@@ -1,0 +1,18 @@
+services:
+  api:
+    image: api:latest
+    build:
+      context: .
+      dockerfile: ./02-proyecto/Dockerfile
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    environment:
+      - CHUNK_SIZE=${CHUNK_SIZE}
+      - CHUNK_OVERLAP=${CHUNK_OVERLAP}
+      - CLAUDE_MODEL_NAME=${CLAUDE_MODEL_NAME}
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+      - NOMIC_API_KEY=${NOMIC_API_KEY}
+      - LANGCHAIN_API_KEY=${LANGCHAIN_API_KEY}
+    restart: always
