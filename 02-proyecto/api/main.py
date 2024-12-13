@@ -1,4 +1,3 @@
-from pprint import pprint
 from langchain_core.messages import SystemMessage
 
 from api.rag import generate
@@ -22,8 +21,6 @@ async def ask(websocket: WebSocket):
 
             try:
                 result, historial = generate(question, historial)
-                pprint(historial)
-                print("\n")
                 await websocket.send_text(result["answer"])
             except Exception as e:
                 await websocket.send_text(f"Error: {str(e)}")
