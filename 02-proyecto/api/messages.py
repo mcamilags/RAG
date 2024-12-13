@@ -10,6 +10,6 @@ SYSTEM_PROMPT: str = (
 
 
 INIT_MESSAGE: str = (
-    "¡Hola! 👋 Soy Dixi, bienvenido/a a Nebula, tu plataforma intuitiva para crear modelos de IA. " +
+    "¡Hola! 👋 Bienvenido/a a Nebula, tu plataforma intuitiva para crear modelos de IA. " +
     "Estoy aquí para ayudarte a resolver tus dudas acerca de la documentación del proyecto de Nebula 🚀."
 )
