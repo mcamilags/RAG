@@ -2,5 +2,7 @@
 *.pyc
 *.ipynb
 
+**/README.md
+
 !02-proyecto
 !requeriments.txt

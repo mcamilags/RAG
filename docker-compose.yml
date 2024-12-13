@@ -1,6 +1,6 @@
 services:
   api:
-    image: api:latest
+    image: api-rag:latest
     build:
       context: .
       dockerfile: ./02-proyecto/Dockerfile
